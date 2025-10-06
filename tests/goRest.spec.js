@@ -76,7 +76,8 @@ test('update user by Id',async({userApi})=>{
             const deleteResponse=await userApi.deleteUser(userId)
             expect(deleteResponse.status()).toBe(SLA.Delete);
             expect(deleteResponse.ok()).toBeTruthy();
-           
+            expect(deleteResponse.ok()).toBeTruthy();
+            
         }
     })
     
