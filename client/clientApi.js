@@ -26,6 +26,10 @@ class ClientApi{
             data:payLoad
         });
        }
+       async deleteUser(userId){
+        return this.request.delete(`${baseUrl}public/v2/users/${userId}`,{
+            headers:Headers
+        });
      }                              
         
     

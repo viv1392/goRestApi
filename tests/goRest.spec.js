@@ -69,5 +69,13 @@ test('update user by Id',async({userApi})=>{
             schemaVladation.validateSchema(schemaCreateUser,responseBody)
     }
   })
+    test('Delete user by Id',async({userApi})=>{
+        if(!userId==''){
+            const deleteResponse=await userApi.deleteUser(userId)
+            expect(deleteResponse.status()).toBe(SLA.Delete);
+            const getResponse=await userApi.getUserById(userId)
+            expect(getResponse.status()).toBe(SLA.Delete);
+        }
+    })
     
 })
