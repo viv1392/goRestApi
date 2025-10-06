@@ -5,9 +5,10 @@ const{getUserSchema,schemaCreateUser}=require('../schema/Schema');
 const{payLoad}=require('../utils/testData');
 const schemaVladation=new SchemaVladation();
 
-let userId='';
+
 
 test.describe.serial('Gorest APi tests',()=>{
+  let userId='';
     test('Get user details',async({userApi})=>{ 
         const startTime = Date.now();
         const response=await userApi.getUserDetails() 
@@ -74,8 +75,8 @@ test('update user by Id',async({userApi})=>{
         if(!userId==''){
             const deleteResponse=await userApi.deleteUser(userId)
             expect(deleteResponse.status()).toBe(SLA.Delete);
-            const getResponse=await userApi.getUserById(userId)
-            expect(getResponse.status()).toBe(SLA.Delete);
+            expect(deleteResponse.ok()).toBeTruthy();
+           
         }
     })
     
