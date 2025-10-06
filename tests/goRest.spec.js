@@ -66,7 +66,8 @@ test('update user by Id',async({userApi})=>{
             expect(responseBody).toHaveProperty('id',userId)
             expect(responseBody).toHaveProperty('name','Reema')
             expect(responseBody).toHaveProperty('email',payLoad.email)
-            schemaVladation.validateSchema(schemaCreateUser,responseBody)
+            schemaVladation.validateSchema(schemaCreateUser,responseBody) 
+            
     }
   })
     test('Delete user by Id',async({userApi})=>{
