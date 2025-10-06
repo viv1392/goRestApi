@@ -1,6 +1,7 @@
 const{baseUrl,Headers}=require('../config/Config');
 
 class ClientApi{
+
     constructor(request){
         this.request=request;
     }
@@ -30,7 +31,8 @@ class ClientApi{
         return this.request.delete(`${baseUrl}public/v2/users/${userId}`,{
             headers:Headers
         });
-     }                              
+    }   
+}        
+module.exports={ClientApi};              
         
     
-    module.exports={ClientApi};
