@@ -5,9 +5,9 @@ const{getUserSchema,schemaCreateUser}=require('../schema/Schema');
 const{payLoad}=require('../utils/testData');
 const schemaVladation=new SchemaVladation();
 
-test.describe.serial('Gorest APi tests',()=>{
-    let userId=''
+let userId='';
 
+test.describe.serial('Gorest APi tests',()=>{
     test('Get user details',async({userApi})=>{ 
         const startTime = Date.now();
         const response=await userApi.getUserDetails() 
@@ -32,9 +32,9 @@ test.describe.serial('Gorest APi tests',()=>{
     const response=await userApi.createUser(payLoad)
     expect(response.status()).toBe(SLA.Post);
     const responseBody=await response.json();
-    userId=responseBody.id;
-    console.log(responseBody);
-    expect(responseBody).toHaveProperty('id')
+    console.log('Created user :',responseBody);
+    userId = responseBody.id;
+    expect(responseBody).toHaveProperty('id');
     expect(responseBody).toHaveProperty('name',payLoad.name)
     expect(responseBody).toHaveProperty('email',payLoad.email)
     expect(responseBody).toHaveProperty('status',payLoad.status)
